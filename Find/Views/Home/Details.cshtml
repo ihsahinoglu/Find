@@ -1,4 +1,7 @@
-﻿@model Find.Models.Candidate
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model Find.Models.Candidate
 
 
 	<div class="Loader"></div>
@@ -12,7 +15,7 @@
 		<!-- Title Header Start -->
 		<section class="inner-header-title" style="background-image:url(~/assets/img/banner-10.jpg);">
 			<div class="container">
-				<h1>Candidate Profile</h1>
+				<h1>Profil Detay</h1>
 			</div>
 		</section>
 		<div class="clearfix"></div>
@@ -54,77 +57,70 @@
 									<div class="edit-pro">
 										<div class="col-md-4 col-sm-6">
 											<label>Adı</label>
-											<input type="text" class="form-control" value="@Model.Name">
+											<input asp-for="Name" type="text" class="form-control" value="@Model.Name">
 										</div>
 										<div class="col-md-4 col-sm-6">
 											<label>Soyadı</label>
-											<input type="text" class="form-control" value="@Model.Surname">
+										<input asp-for="Surname" type="text" class="form-control" value="@Model.Surname">
 										</div>
 
 										<div class="col-md-4 col-sm-6">
 											<label>Email</label>
-											<input type="email" class="form-control" value="@Model.Email">
+										<input asp-for="Email" type="email" class="form-control" value="@Model.Email">
 										</div>
 										<div class="col-md-4 col-sm-6">
 											<label>Telefon Numarası</label>
-											<input type="text" class="form-control" value="@Model.Phone">
+										<input asp-for="Phone" type="text" class="form-control" value="@Model.Phone">
 										</div>
 										<div class="col-md-4 col-sm-6">
 											<label>Adres</label>
-											<input type="text" class="form-control" value="@Model.Adress">
+										<input asp-for="Adress" type="text" class="form-control" value="@Model.Adress">
 										</div>
 										<div class="col-md-4 col-sm-6">
 											<label>Meslek</label>
-											<input type="text" class="form-control" value="@Model.Profession">
+										<input asp-for="Profession" type="text" class="form-control" value="@Model.Profession">
 										</div>
 										<div class="col-md-4 col-sm-6">
 											<label>Yabancı Dil</label>
-											<input type="text" class="form-control" value="@Model.Language">
+										<input asp-for="Language" type="text" class="form-control" value="@Model.Language">
 										</div>
 										<div class="col-md-4 col-sm-6">
 											<label>Yabancı Dil Düzeyi</label>
-											<input type="text" class="form-control" value="@Model.LanguageLevel">
+										<input asp-for="LanguageLevel" type="text" class="form-control" value="@Model.LanguageLevel">
 										</div>
 										<div class="col-md-4 col-sm-6">
 											<label>Eğitim Düzeyi</label>
-											<input type="text" class="form-control" value="@Model.EducationalStatus">
+										<input asp-for="EducationalStatus" type="text" class="form-control" value="@Model.EducationalStatus">
 										</div>
 										<div class="col-md-4 col-sm-6">
 											<label>Diploma Notu</label>
-											<input type="text" class="form-control" value="@Model.GraduationScore">
+										<input asp-for="GraduationScore" type="text" class="form-control" value="@Model.GraduationScore">
 										</div>
 										<div class="col-md-4 col-sm-6">
 											<label>Referans</label>
-											<input type="text" class="form-control" value="@Model.Reference">
+										<input asp-for="Reference" type="text" class="form-control" value="@Model.Reference">
 										</div>
-										<div class="col-md-4 col-sm-6">
-											<label>Old Password</label>
-											<input type="password" class="form-control" placeholder="*********">
-										</div>
-										<div class="col-md-4 col-sm-6">
-											<label>New Password</label>
-											<input type="password" class="form-control" placeholder="*********">
-										</div>
-										<div class="col-md-4 col-sm-6">
-											<label>Old Password</label>
-											<input type="password" class="form-control" placeholder="*********">
-										</div>
+										
 										<div class="col-md-4 col-sm-6">
 											<label>Hakkımda</label>
-											<textarea class="form-control" value="@Model.Explanation"></textarea>
+										<textarea asp-for="Explanation" class="form-control" value="@Model.Explanation"></textarea>
 										</div>
+
+										 @if (SignInManager.IsSignedIn(User))
+										{ 
 										<div class="col-md-4 col-sm-6">
-											<label>Upload Profile Pic</label>
-
-											<div class="dz-default dz-message">
-												<i class="fa fa-cloud-upload"></i>
-												<span>Drop files here to upload</span>
+										<label>Profil Fotoğrafı Yükle</label>
+											<div class="detail-pic js">
+												<div class="box">
+													<input asp-for="Image" type="file" name="Image" id="Image" class="inputfile" />
+													<label for="Image"><i class="fa fa-upload" aria-hidden="true"></i><span></span></label>
+												</div>
 											</div>
-
 										</div>
 										<div class="col-sm-12">
 											<button type="submit" value="Save" class="update-btn">Güncelle</button>
 										</div>
+										}
 									</div>
 								</div>
 							</div>

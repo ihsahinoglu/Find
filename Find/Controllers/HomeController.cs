@@ -89,6 +89,7 @@ namespace Find.Controllers
 			{
 				try
 				{
+                    
 					_context.Update(candidate);
 					await _context.SaveChangesAsync();
 				}
@@ -103,7 +104,7 @@ namespace Find.Controllers
 						throw;
 					}
 				}
-				return RedirectToAction(nameof(Details));
+				return View(candidate);
 			}
 			return View(candidate);
 		}
