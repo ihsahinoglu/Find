@@ -78,7 +78,7 @@
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
 										<select name="@Html.DisplayNameFor(model => model.Profession)" class="form-control">
-										<option>Meslek</option>
+											<option>Meslek</option>
 											<option>Öğrenci</option>
 											<option>Öğretmen</option>
 											<option>Mühendis</option>
@@ -157,7 +157,7 @@
 
 							</div>
 							
-							<p class="text-danger">@ViewData["error"]</p>
+							<b class="text-danger">@ViewData["error"]</b>
 							
 						</div>
 						<div class="clearfix"></div>
@@ -309,7 +309,7 @@
 
 							</div>
 						
-							<p class="text-danger">@ViewData["error"]</p>
+							<b class="text-danger">@ViewData["error"]</b>
 						
 						</div>
 						<div class="clearfix"></div>
@@ -317,7 +317,7 @@
 							<div class="wrap-search-filter">
 
 								<div class="col-md-3 col-sm-3">
-									<button type="submit" value="index" class="btn btn-primary full-width">Filtrele ve Ağırlığa Göre Sırala</button>
+									<button type="submit" class="btn btn-primary full-width">Filtrele ve Ağırlığa Göre Sırala</button>
 								</div>
 							</div>
 						</div>

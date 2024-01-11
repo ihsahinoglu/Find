@@ -7,8 +7,8 @@ namespace Find.Models
         [Key]
         public int Id { get; set; }
         public string? Image { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
         public int? Age { get; set; }
         public string? Gender { get; set; }
         public DateTime? BirthDate { get; set; }
