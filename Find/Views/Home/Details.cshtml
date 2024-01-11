@@ -1,0 +1,172 @@
+﻿@model Find.Models.Candidate
+
+
+	<div class="Loader"></div>
+	<div class="wrapper">
+
+		<!-- Start Navigation -->
+		<partial name="~/Views/Shared/Navbar.cshtml"> </partial>
+		<!-- End Navigation -->
+		<div class="clearfix"></div>
+
+		<!-- Title Header Start -->
+		<section class="inner-header-title" style="background-image:url(~/assets/img/banner-10.jpg);">
+			<div class="container">
+				<h1>Candidate Profile</h1>
+			</div>
+		</section>
+		<div class="clearfix"></div>
+		<!-- Title Header End -->
+		<!-- Candidate Profile Start -->
+
+		<section class="detail-desc advance-detail-pr gray-bg">
+			<div class="container white-shadow">
+
+				<div class="row">
+					<div class="detail-pic"><img src="~/assets/img/can-1.png" class="img" alt="" /><a href="#" class="detail-edit" title="edit"><i class="fa fa-pencil"></i></a></div>
+
+				</div>
+
+				<div class="row bottom-mrg">
+					<div class="col-md-12 col-sm-12">
+						<div class="advance-detail detail-desc-caption">
+							<h4>@Model.Name @Model.Surname</h4><span class="designation">@Model.Profession</span>
+
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</section>
+
+		<section class="full-detail-description full-detail gray-bg">
+			<div class="container">
+				<div class="col-md-12 col-sm-12">
+					<div class="full-card">
+
+						<form asp-action="Details">
+
+							<div id="settings">
+								<div class="row no-mrg">
+									<h3></h3>
+									<div class="edit-pro">
+										<div class="col-md-4 col-sm-6">
+											<label>Adı</label>
+											<input type="text" class="form-control" value="@Model.Name">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Soyadı</label>
+											<input type="text" class="form-control" value="@Model.Surname">
+										</div>
+
+										<div class="col-md-4 col-sm-6">
+											<label>Email</label>
+											<input type="email" class="form-control" value="@Model.Email">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Telefon Numarası</label>
+											<input type="text" class="form-control" value="@Model.Phone">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Adres</label>
+											<input type="text" class="form-control" value="@Model.Adress">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Meslek</label>
+											<input type="text" class="form-control" value="@Model.Profession">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Yabancı Dil</label>
+											<input type="text" class="form-control" value="@Model.Language">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Yabancı Dil Düzeyi</label>
+											<input type="text" class="form-control" value="@Model.LanguageLevel">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Eğitim Düzeyi</label>
+											<input type="text" class="form-control" value="@Model.EducationalStatus">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Diploma Notu</label>
+											<input type="text" class="form-control" value="@Model.GraduationScore">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Referans</label>
+											<input type="text" class="form-control" value="@Model.Reference">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Old Password</label>
+											<input type="password" class="form-control" placeholder="*********">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>New Password</label>
+											<input type="password" class="form-control" placeholder="*********">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Old Password</label>
+											<input type="password" class="form-control" placeholder="*********">
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Hakkımda</label>
+											<textarea class="form-control" value="@Model.Explanation"></textarea>
+										</div>
+										<div class="col-md-4 col-sm-6">
+											<label>Upload Profile Pic</label>
+
+											<div class="dz-default dz-message">
+												<i class="fa fa-cloud-upload"></i>
+												<span>Drop files here to upload</span>
+											</div>
+
+										</div>
+										<div class="col-sm-12">
+											<button type="submit" value="Save" class="update-btn">Güncelle</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Candidate Profile End -->
+		<!-- Footer Section Start -->
+		<!-- Scripts
+		================================================== -->
+		<script type="text/javascript" src="~/assets/plugins/js/jquery.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/viewportchecker.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/bootsnav.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/select2.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/wysihtml5-0.3.0.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/bootstrap-wysihtml5.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/datedropper.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/dropzone.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/loader.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/slick.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/gmap3.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/jquery.easy-autocomplete.min.js"></script>
+		<!-- Custom Js -->
+		<script src="~/assets/js/custom.js"></script>
+		<script src="~/assets/js/jQuery.style.switcher.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$('#styleOptions').styleSwitcher();
+			});
+		</script>
+		<script>
+			function openRightMenu() {
+				document.getElementById("rightMenu").style.display = "block";
+			}
+
+			function closeRightMenu() {
+				document.getElementById("rightMenu").style.display = "none";
+			}
+		</script>
+	</div>

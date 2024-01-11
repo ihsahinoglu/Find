@@ -1,0 +1,53 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Page Needs==================================================-->
+    <title>Job Stock - Responsive Job Portal Bootstrap Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS==================================================-->
+    <link rel="stylesheet" href="~/assets/plugins/css/plugins.css">
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" id="jssDefault" href="~/assets/css/colors/green-style.css">
+    <style>
+        h2 {
+            margin-bottom: 0;
+        }
+
+        h3 {
+            margin: 0 0 30px;
+        }
+
+        .ui-slider-range {
+            background: green;
+        }
+
+        .percent {
+            color: green;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            border: none;
+        }
+    </style>
+   
+    <title>@ViewData["Title"] - Find</title>
+   @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Find.styles.css" asp-append-version="true" /> *@
+    
+</head>
+<body>
+    
+        
+            @RenderBody()
+       
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

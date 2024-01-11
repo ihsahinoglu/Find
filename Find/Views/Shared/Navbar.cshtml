@@ -1,0 +1,32 @@
+﻿
+<nav class="navbar navbar-default navbar-fixed navbar-transparent white bootsnav">
+    <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index-2.html">
+                <img src="~/assets/img/logo-white.png"
+                     class="logo logo-display"
+                     alt=""><img src="~/assets/img/logo-white.png" class="logo logo-scrolled" alt="">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+                <li><a asp-controller="Users" asp-action="Login" ><i class="fa fa-pencil" aria-hidden="true"></i>Kayıt Ol</a></li>
+                <li class="left-br">
+                    <a asp-controller="Users" asp-action="Login" class="signin">Giriş Yap</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                <partial name="_LoginPartial" />
+                <li>
+                    <a asp-controller="Home" asp-action="Create" class="dropdown-toggle">Özgeçmiş Oluştur</a>
+
+                </li>
+                <li> <a asp-controller="Home" asp-action="Getlist" class="dropdown-toggle">Aday Bul</a>
+            </ul>
+        </div>
+    </div>
+</nav>

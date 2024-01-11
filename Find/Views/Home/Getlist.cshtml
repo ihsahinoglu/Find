@@ -1,0 +1,488 @@
+﻿
+@model IEnumerable<Find.Models.Candidate>
+
+
+	<div class="Loader"></div>
+	<div class="wrapper">
+
+		<!-- Start Navigation -->
+		<partial name="Navbar"> </partial>
+		<!-- End Navigation -->
+		<div class="clearfix"></div>
+
+		<!-- Title Header Start -->
+		<section class="inner-header-title blank">
+			<div class="container">
+
+				<h2>Aday Bul</h2>
+			</div>
+		</section>
+		<div class="clearfix"></div>
+		<!-- Title Header End -->
+		<!-- Accordion Design Start -->
+		<section class="accordion">
+			<div class="container">
+				<form asp-action="Getlist">
+					<!-- search filter -->
+					@if (ViewData["status"] != "filtred")
+					{
+						<div class="row extra-mrg">
+							<div class="wrap-search-filter">
+								<h2 class="detail-title">Filtrele</h2>
+
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.MilitaryStatus)" class="form-control">
+											<option>Askerlik Durumu</option>
+											<option>yaptı</option>
+											<option>tecilli</option>
+											<option>muaf</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Age)" class="form-control">
+											<option value=0>Yaş Aralığı</option>
+											<option value=1>18-25</option>
+											<option value=2>25-35</option>
+											<option value=3>35-50</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Experience)" class="form-control">
+											<option>Tecrübe</option>
+											<option>ilköğretim</option>
+											<option>lise</option>
+											<option>önlisans</option>
+											<option>lisans</option>
+											<option>yüksek lisans</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Gender)" class="form-control">
+											<option>cinsiyetiniz</option>
+											<option>erkek</option>
+											<option>kadın</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.EducationalStatus)" class="form-control">
+											<option>Eğitim Seviyesi</option>
+											<option>ilköğretim</option>
+											<option>lise</option>
+											<option>önlisans</option>
+											<option>lisans</option>
+											<option>yüksek lisans</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Profession)" class="form-control">
+											<option>mesleğiniz</option>
+											<option>Öğrenci</option>
+											<option>Öğretmen</option>
+											<option>Mühendis</option>
+											<option>Yönetici</option>
+											<option>İşçi</option>
+											<option>Memur</option>
+											<option>Diğer</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Language)" class="form-control">
+											<option>Yabancı Dil</option>
+											<option>İngilizce</option>
+											<option>Almanca</option>
+											<option>Fransızca</option>
+											<option>Arapça</option>
+											<option>Rusca</option>
+											<option>Diğer</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Experience)" class="form-control">
+											<option>Tecrübe</option>
+											<option>yok</option>
+											<option>1-3 yıl</option>
+											<option>3-5 yıl</option>
+											<option>5-10 yıl</option>
+											<option>10+ yıl</option>
+										</select>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<!-- search filter -->
+						<div class="row extra-mrg">
+							<div class="wrap-search-filter">
+								<h2 class="detail-title">Sırala</h2>
+								<div class="col-md-3 col-sm-3">
+									<div class="slider">
+										<p>Eğitim Seviyesi:</p>
+										<input name="a" type="range" min="0" max="100" step="10" value="0" oninput="rangeValue1.innerText = this.value">
+										<b>%<p id="rangeValue1">0</p></b>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="slider">
+										<p>Tecrübe:</p>
+										<input name="b" type="range" min="0" max="100" step="10" value="0" oninput="rangeValue2.innerText = this.value">
+										<b>%<p id="rangeValue2">0</p></b>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="slider">
+										<p>Dil:</p>
+										<input name="c" type="range" min="0" max="100" step="10" value="0" oninput="rangeValue3.innerText = this.value">
+										<b>%<p id="rangeValue3">0</p></b>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="slider">
+										<p>Diploma Notu:</p>
+										<input name="d" type="range" min="0" max="100" step="10" value="0" oninput="rangeValue4.innerText = this.value">
+										<b>%<p id="rangeValue4">0</p></b>
+									</div>
+								</div>
+
+
+							</div>
+
+
+
+						</div>
+						<div class="clearfix"></div>
+						<div class="row extra-mrg">
+							<div class="wrap-search-filter">
+
+								<div class="col-md-3 col-sm-3">
+									<button type="submit" value="index" class="btn btn-primary full-width">Filtrele ve Ağırlığa Göre Sırala</button>
+								</div>
+							</div>
+						</div>
+						<!-- search filter End -->
+					}
+					@if (ViewData["status"] == "filtred")
+					{
+						<div class="row extra-mrg">
+							<div class="wrap-search-filter">
+								<h2 class="detail-title">Filtrele</h2>
+
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.MilitaryStatus)" class="form-control">
+											<option>@ViewData["MilitaryStatus"]</option>
+											<option>Askerlik Durumu</option>
+											<option>yaptı</option>
+											<option>tecilli</option>
+											<option>muaf</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Age)" class="form-control">
+											<option value=0>Yaş Aralığı</option>
+											<option value=1>18-25</option>
+											<option value=2>25-35</option>
+											<option value=3>35-50</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Experience)" class="form-control">
+											<option>@ViewData["Experience"]</option>
+											<option>Tecrübe</option>
+											<option>ilköğretim</option>
+											<option>lise</option>
+											<option>önlisans</option>
+											<option>lisans</option>
+											<option>yüksek lisans</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Gender)" class="form-control">
+											<option>@ViewData["Gender"]</option>
+											<option>cinsiyetiniz</option>
+											<option>erkek</option>
+											<option>kadın</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.EducationalStatus)" class="form-control">
+											<option>@ViewData["EducationalStatus"]</option>
+											<option>Eğitim Seviyesi</option>
+											<option>ilköğretim</option>
+											<option>lise</option>
+											<option>önlisans</option>
+											<option>lisans</option>
+											<option>yüksek lisans</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Profession)" class="form-control">
+											<option>@ViewData["Profession"]</option>
+											<option>Öğrenci</option>
+											<option>Öğretmen</option>
+											<option>Mühendis</option>
+											<option>Yönetici</option>
+											<option>İşçi</option>
+											<option>Memur</option>
+											<option>Diğer</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Language)" class="form-control">
+											<option>@ViewData["Language"]</option>
+											<option>Yabancı Dil</option>
+											<option>İngilizce</option>
+											<option>Almanca</option>
+											<option>Fransızca</option>
+											<option>Arapça</option>
+											<option>Rusca</option>
+											<option>Diğer</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Experience)" class="form-control">
+											<option>@ViewData["Experience"]</option>
+											<option>Tecrübe</option>
+											<option>yok</option>
+											<option>1-3 yıl</option>
+											<option>3-5 yıl</option>
+											<option>5-10 yıl</option>
+											<option>10+ yıl</option>
+										</select>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<!-- search filter -->
+						<div class="row extra-mrg">
+							<div class="wrap-search-filter">
+								<h2 class="detail-title">Sırala</h2>
+								<div class="col-md-3 col-sm-3">
+									<div class="slider">
+										<p>Eğitim Seviyesi:</p>
+										<input name="a" type="range" min="0" max="100" step="10" value="@ViewData["a"]" oninput="rangeValue1.innerText = this.value">
+										<b>%<p id="rangeValue1">@ViewData["a"]</p></b>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="slider">
+										<p>Tecrübe:</p>
+										<input name="b" type="range" min="0" max="100" step="10" value="@ViewData["b"]" oninput="rangeValue2.innerText = this.value">
+										<b>%<p id="rangeValue2">@ViewData["b"]</p></b>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="slider">
+										<p>Dil:</p>
+										<input name="c" type="range" min="0" max="100" step="10" value="@ViewData["c"]" oninput="rangeValue3.innerText = this.value">
+										<b>%<p id="rangeValue3">@ViewData["c"]</p></b>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="slider">
+										<p>Diploma Notu:</p>
+										<input name="d" type="range" min="0" max="100" step="10" value="@ViewData["d"]" oninput="rangeValue4.innerText = this.value">
+										<b>%<p id="rangeValue4">@ViewData["d"]</p></b>
+									</div>
+								</div>
+
+
+
+							</div>
+
+						</div>
+						<div class="clearfix"></div>
+						<div class="row extra-mrg">
+							<div class="wrap-search-filter">
+
+								<div class="col-md-3 col-sm-3">
+									<button type="submit" value="index" class="btn btn-primary full-width">Filtrele ve Ağırlığa Göre Sırala</button>
+								</div>
+							</div>
+						</div>
+						<!-- search filter End -->
+					}
+				</form>
+				<div class="row">
+
+					@foreach (var item in Model)
+					{
+						<!-- Single paid-candidater -->
+						<div class="col-md-4 col-sm-6">
+							<div class="paid-candidate-container">
+								<div class="paid-candidate-box">
+									<div class="dropdown">
+										<div class="btn-group fl-right">
+											<button type="button" class="btn-trans" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<i class="fa fa-gear"></i>
+											</button>
+											<div class="dropdown-menu pull-right animated flipInX">
+												<a href="#">Shortlist</a>
+												<a href="#">Send Message</a>
+												<a href="#">Dislike</a>
+											</div>
+										</div>
+									</div>
+									<div class="paid-candidate-inner--box">
+										<div class="paid-candidate-box-thumb">
+											<img src="~/assets/img/client-1.jpg" class="img-responsive img-circle" alt="" />
+										</div>
+										<div class="paid-candidate-box-detail">
+											<h4>@item.Name @item.Surname</h4>
+											<span class="desination">@item.Profession</span>
+										</div>
+									</div>
+									<div class="paid-candidate-box-extra">
+
+										<p>@item.Explanation</p>
+									</div>
+								</div>
+								<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-paid-candidate bt-1">
+									Detayını Gör
+								</a>
+							</div>
+						</div>
+
+					}
+
+
+				</div>
+
+			</div>
+
+			<div class="row">
+				<ul class="pagination">
+					<li><a href="#">&laquo;</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#"><i class="fa fa-ellipsis-h"></i></a></li>
+					<li><a href="#">&raquo;</a></li>
+				</ul>
+			</div>
+		</section>
+		<!-- Accordion Design End -->
+		<!-- Footer Section Start -->
+		<!-- Scripts
+		================================================== -->
+		<script type="text/javascript" src="~/assets/plugins/js/jquery.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/viewportchecker.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/bootsnav.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/select2.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/wysihtml5-0.3.0.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/bootstrap-wysihtml5.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/datedropper.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/dropzone.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/loader.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/slick.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/gmap3.min.js"></script>
+		<script type="text/javascript" src="~/assets/plugins/js/jquery.easy-autocomplete.min.js"></script>
+
+		<!-- Custom Js -->
+		<script src="~/assets/js/custom.js"></script>
+		<script src="~/assets/js/jQuery.style.switcher.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$('#styleOptions').styleSwitcher();
+			});
+		</script>
+		<script>
+			function openRightMenu() {
+				document.getElementById("rightMenu").style.display = "block";
+			}
+
+			function closeRightMenu() {
+				document.getElementById("rightMenu").style.display = "none";
+			}
+		</script>
+		<script src="~/assets/js/custom.js"></script>
+
+		<script>
+			$('#dob').datedropper();
+		</script>
+
+		<script>
+			$('#exp-start').datedropper();
+		</script>
+
+		<script>
+			$('#exp-end').datedropper();
+		</script>
+
+		<script>
+			$('#edu-start').datedropper();
+		</script>
+
+		<script>
+			$('#edu-end').datedropper();
+		</script>
+		<script src="~/assets/js/jquery.style.switcher.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$('#styleoptions').styleswitcher();
+			});
+		</script>
+		<script>
+			function openrightmenu() {
+				document.getelementbyıd("rightmenu").style.display = "block";
+			}
+
+			function closerightmenu() {
+				document.getelementbyıd("rightmenu").style.display = "none";
+			}
+		</script>
+		<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+	</div>

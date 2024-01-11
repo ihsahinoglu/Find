@@ -1,0 +1,434 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="Loader"></div>
+    <div class="wrapper">
+      
+    <partial name="Navbar" />
+        <div class="clearfix"></div>
+        <div class="banner" style="background-image:url(~/assets/img/banner-9.jpg);">
+            <div class="container">
+                <div class="banner-caption">
+                    <div class="col-md-12 col-sm-12 banner-text">
+                        <h1>7,000+ Browse Jobs</h1>
+
+                        <form class="form-horizontal">
+                            <div class="col-md-4 no-padd">
+                                <div class="input-group">
+                                    <input type="text" class="form-control right-bor" id="joblist"
+                                           placeholder="Skills, Designations, Companies">
+                                </div>
+                            </div>
+                            <div class="col-md-3 no-padd">
+                                <div class="input-group">
+                                    <input type="text" class="form-control right-bor" id="location"
+                                           placeholder="Search By Location..">
+                                </div>
+                            </div>
+                            <div class="col-md-3 no-padd">
+                                <div class="input-group">
+                                    <select id="choose-city" class="form-control">
+                                        <option>Choose City</option>
+                                        <option>Chandigarh</option>
+                                        <option>London</option>
+                                        <option>England</option>
+                                        <option>Pratapcity</option>
+                                        <option>Ukrain</option>
+                                        <option>Wilangana</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 no-padd">
+                                <div class="input-group">
+                                    <button type="submit" class="btn btn-primary">Search Job</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="company-brand">
+                <div class="container">
+                    <div id="company-brands" class="owl-carousel">
+                        <div class="brand-img">
+                            <img src="~/assets/img/microsoft-home.png" class="img-responsive" alt="" />
+                        </div>
+                        <div class="brand-img"><img src="~/assets/img/img-home.png" class="img-responsive" alt="" /></div>
+                        <div class="brand-img">
+                            <img src="~/assets/img/mothercare-home.png" class="img-responsive" alt="" />
+                        </div>
+                        <div class="brand-img"><img src="~/assets/img/paypal-home.png" class="img-responsive" alt="" /></div>
+                        <div class="brand-img"><img src="~/assets/img/serv-home.png" class="img-responsive" alt="" /></div>
+                        <div class="brand-img"><img src="~/assets/img/xerox-home.png" class="img-responsive" alt="" /></div>
+                        <div class="brand-img"><img src="~/assets/img/yahoo-home.png" class="img-responsive" alt="" /></div>
+                        <div class="brand-img">
+                            <img src="~/assets/img/mothercare-home.png" class="img-responsive" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="main-heading">
+                        <p>200 New Jobs</p>
+
+                        <h2>New & Random <span>Jobs</span></h2>
+                    </div>
+                </div>
+                <div class="row extra-mrg">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="grid-view brows-job-list">
+                            <div class="brows-job-company-img">
+                                <img src="~/assets/img/com-1.jpg" class="img-responsive"
+                                     alt="" />
+                            </div>
+                            <div class="brows-job-position">
+                                <h3><a href="job-detail.html">Web Developer</a></h3>
+
+                                <p><span>Google</span></p>
+                            </div>
+                            <div class="job-position"><span class="job-num">5 Position</span></div>
+                            <div class="brows-job-type"><span class="part-time">Part Time</span></div>
+                            <ul class="grid-view-caption">
+                                <li>
+                                    <div class="brows-job-location">
+                                        <p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="grid-view brows-job-list">
+                            <div class="brows-job-company-img">
+                                <img src="~/assets/img/com-2.jpg" class="img-responsive"
+                                     alt="" />
+                            </div>
+                            <div class="brows-job-position">
+                                <h3><a href="job-detail.html">Web Developer</a></h3>
+
+                                <p><span>Google</span></p>
+                            </div>
+                            <div class="job-position"><span class="job-num">5 Position</span></div>
+                            <div class="brows-job-type"><span class="freelanc">Freelancer</span></div>
+                            <ul class="grid-view-caption">
+                                <li>
+                                    <div class="brows-job-location">
+                                        <p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
+                                </li>
+                            </ul>
+                            <span class="tg-themetag tg-featuretag">Premium</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="grid-view brows-job-list">
+                            <div class="brows-job-company-img">
+                                <img src="~/assets/img/com-3.jpg" class="img-responsive"
+                                     alt="" />
+                            </div>
+                            <div class="brows-job-position">
+                                <h3><a href="job-detail.html">Web Developer</a></h3>
+
+                                <p><span>Google</span></p>
+                            </div>
+                            <div class="job-position"><span class="job-num">5 Position</span></div>
+                            <div class="brows-job-type"><span class="enternship">Enternship</span></div>
+                            <ul class="grid-view-caption">
+                                <li>
+                                    <div class="brows-job-location">
+                                        <p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="grid-view brows-job-list">
+                            <div class="brows-job-company-img">
+                                <img src="~/assets/img/com-4.jpg" class="img-responsive"
+                                     alt="" />
+                            </div>
+                            <div class="brows-job-position">
+                                <h3><a href="job-detail.html">Web Developer</a></h3>
+
+                                <p><span>Google</span></p>
+                            </div>
+                            <div class="job-position"><span class="job-num">5 Position</span></div>
+                            <div class="brows-job-type"><span class="full-time">Full Time</span></div>
+                            <ul class="grid-view-caption">
+                                <li>
+                                    <div class="brows-job-location">
+                                        <p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="grid-view brows-job-list">
+                            <div class="brows-job-company-img">
+                                <img src="~/assets/img/com-5.jpg" class="img-responsive"
+                                     alt="" />
+                            </div>
+                            <div class="brows-job-position">
+                                <h3><a href="job-detail.html">Web Developer</a></h3>
+
+                                <p><span>Google</span></p>
+                            </div>
+                            <div class="job-position"><span class="job-num">5 Position</span></div>
+                            <div class="brows-job-type"><span class="part-time">Part Time</span></div>
+                            <ul class="grid-view-caption">
+                                <li>
+                                    <div class="brows-job-location">
+                                        <p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
+                                </li>
+                            </ul>
+                            <span class="tg-themetag tg-featuretag">Premium</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="grid-view brows-job-list">
+                            <div class="brows-job-company-img">
+                                <img src="~/assets/img/com-6.jpg" class="img-responsive"
+                                     alt="" />
+                            </div>
+                            <div class="brows-job-position">
+                                <h3><a href="job-detail.html">Web Developer</a></h3>
+
+                                <p><span>Google</span></p>
+                            </div>
+                            <div class="job-position"><span class="job-num">5 Position</span></div>
+                            <div class="brows-job-type"><span class="full-time">Full Time</span></div>
+                            <ul class="grid-view-caption">
+                                <li>
+                                    <div class="brows-job-location">
+                                        <p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="grid-view brows-job-list">
+                            <div class="brows-job-company-img">
+                                <img src="~/assets/img/com-7.jpg" class="img-responsive"
+                                     alt="" />
+                            </div>
+                            <div class="brows-job-position">
+                                <h3><a href="job-detail.html">Web Developer</a></h3>
+
+                                <p><span>Google</span></p>
+                            </div>
+                            <div class="job-position"><span class="job-num">5 Position</span></div>
+                            <div class="brows-job-type"><span class="freelanc">Freelancer</span></div>
+                            <ul class="grid-view-caption">
+                                <li>
+                                    <div class="brows-job-location">
+                                        <p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="grid-view brows-job-list">
+                            <div class="brows-job-company-img">
+                                <img src="~/assets/img/com-1.jpg" class="img-responsive"
+                                     alt="" />
+                            </div>
+                            <div class="brows-job-position">
+                                <h3><a href="job-detail.html">Web Developer</a></h3>
+
+                                <p><span>Google</span></p>
+                            </div>
+                            <div class="job-position"><span class="job-num">5 Position</span></div>
+                            <div class="brows-job-type"><span class="enternship">Enternship</span></div>
+                            <ul class="grid-view-caption">
+                                <li>
+                                    <div class="brows-job-location">
+                                        <p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        <section class="pricing">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-heading">
+                            <p>Top Freelancer</p>
+
+                            <h2>Hire Expert <span>Freelancer</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="freelance-container style-2">
+                            <div class="freelance-box">
+                                <span class="freelance-status">Available</span>
+                                <h4 class="flc-rate">$17/hr</h4>
+
+                                <div class="freelance-inner-box">
+                                    <div class="freelance-box-thumb">
+                                        <img src="~/assets/img/can-5.jpg"
+                                             class="img-responsive img-circle" alt="" />
+                                    </div>
+                                    <div class="freelance-box-detail">
+                                        <h4>Agustin L. Smith</h4>
+                                        <span class="location">Australia</span>
+                                    </div>
+                                    <div class="rattings">
+                                        <i class="fa fa-star fill"></i><i class="fa fa-star fill"></i><i class="fa fa-star fill"></i><i class="fa fa-star-half fill"></i><i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="freelance-box-extra">
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+                                    <ul>
+                                        <li>Php</li>
+                                        <li>Android</li>
+                                        <li>Html</li>
+                                        <li class="more-skill bg-primary">+3</li>
+                                    </ul>
+                                </div>
+                                <a href="freelancer-detail.html" class="btn btn-freelance-two bg-default">View Detail</a><a href="freelancer-detail.html" class="btn btn-freelance-two bg-info">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="freelance-container style-2">
+                            <div class="freelance-box">
+                                <span class="freelance-status bg-warning">At Work</span>
+                                <h4 class="flc-rate">$22/hr</h4>
+
+                                <div class="freelance-inner-box">
+                                    <div class="freelance-box-thumb">
+                                        <img src="~/assets/img/can-5.jpg"
+                                             class="img-responsive img-circle" alt="" />
+                                    </div>
+                                    <div class="freelance-box-detail">
+                                        <h4>Delores R. Williams</h4>
+                                        <span class="location">United States</span>
+                                    </div>
+                                    <div class="rattings">
+                                        <i class="fa fa-star fill"></i><i class="fa fa-star fill"></i><i class="fa fa-star fill"></i><i class="fa fa-star-half fill"></i><i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="freelance-box-extra">
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+                                    <ul>
+                                        <li>Php</li>
+                                        <li>Android</li>
+                                        <li>Html</li>
+                                        <li class="more-skill bg-primary">+3</li>
+                                    </ul>
+                                </div>
+                                <a href="freelancer-detail.html" class="btn btn-freelance-two bg-default">View Detail</a><a href="freelancer-detail.html" class="btn btn-freelance-two bg-info">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="freelance-container style-2">
+                            <div class="freelance-box">
+                                <span class="freelance-status">Available</span>
+                                <h4 class="flc-rate">$19/hr</h4>
+
+                                <div class="freelance-inner-box">
+                                    <div class="freelance-box-thumb">
+                                        <img src="~/assets/img/can-5.jpg"
+                                             class="img-responsive img-circle" alt="" />
+                                    </div>
+                                    <div class="freelance-box-detail">
+                                        <h4>Daniel Disroyer</h4>
+                                        <span class="location">Bangladesh</span>
+                                    </div>
+                                    <div class="rattings">
+                                        <i class="fa fa-star fill"></i><i class="fa fa-star fill"></i><i class="fa fa-star fill"></i><i class="fa fa-star-half fill"></i><i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="freelance-box-extra">
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+                                    <ul>
+                                        <li>Php</li>
+                                        <li>Android</li>
+                                        <li>Html</li>
+                                        <li class="more-skill bg-primary">+3</li>
+                                    </ul>
+                                </div>
+                                <a href="freelancer-detail.html" class="btn btn-freelance-two bg-default">View Detail</a><a href="freelancer-detail.html" class="btn btn-freelance-two bg-info">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="text-center"><a href="freelancers-2.html" class="btn btn-primary">Load More</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        <!-- Scripts==================================================-->
+        <script type="text/javascript" src="~/assets/plugins/js/jquery.min.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/viewportchecker.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/bootsnav.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/select2.min.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/wysihtml5-0.3.0.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/bootstrap-wysihtml5.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/datedropper.min.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/dropzone.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/loader.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/slick.min.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/gmap3.min.js"></script>
+        <script type="text/javascript" src="~/assets/plugins/js/jquery.easy-autocomplete.min.js"></script>
+        <script src="~/assets/js/custom.js"></script>
+        <script src="~/assets/js/jQuery.style.switcher.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#styleOptions').styleSwitcher();
+            });</script>
+        <script>
+            function openRightMenu() {
+                document.getElementById("rightMenu").style.display = "block";
+            }
+            function closeRightMenu() {
+                document.getElementById("rightMenu").style.display = "none";
+            }</script>
+    </div>
