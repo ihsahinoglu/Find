@@ -141,7 +141,7 @@ namespace Find.Controllers
 
             }
 
-            if (candidate.Profession != "mesleðiniz")
+            if (candidate.Profession != "Meslek")
                 FiltredList = FiltredList.Where(e => e.Profession == candidate.Profession);
 
 

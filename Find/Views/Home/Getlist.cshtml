@@ -36,7 +36,6 @@
 										<select name="@Html.DisplayNameFor(model => model.MilitaryStatus)" class="form-control">
 											<option>Askerlik Durumu</option>
 											<option>yaptı</option>
-											<option>tecilli</option>
 											<option>muaf</option>
 										</select>
 									</div>
@@ -49,29 +48,6 @@
 											<option value=1>18-25</option>
 											<option value=2>25-35</option>
 											<option value=3>35-50</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Experience)" class="form-control">
-											<option>Tecrübe</option>
-											<option>ilköğretim</option>
-											<option>lise</option>
-											<option>önlisans</option>
-											<option>lisans</option>
-											<option>yüksek lisans</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Gender)" class="form-control">
-											<option>cinsiyetiniz</option>
-											<option>erkek</option>
-											<option>kadın</option>
 										</select>
 									</div>
 								</div>
@@ -91,8 +67,18 @@
 								<div class="col-md-3 col-sm-3">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
+										<select name="@Html.DisplayNameFor(model => model.Gender)" class="form-control">
+											<option>Cinsiyet</option>
+											<option>erkek</option>
+											<option>kadın</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
 										<select name="@Html.DisplayNameFor(model => model.Profession)" class="form-control">
-											<option>mesleğiniz</option>
+										<option>Meslek</option>
 											<option>Öğrenci</option>
 											<option>Öğretmen</option>
 											<option>Mühendis</option>
@@ -198,7 +184,6 @@
 											<option>@ViewData["MilitaryStatus"]</option>
 											<option>Askerlik Durumu</option>
 											<option>yaptı</option>
-											<option>tecilli</option>
 											<option>muaf</option>
 										</select>
 									</div>
@@ -217,9 +202,9 @@
 								<div class="col-md-3 col-sm-3">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Experience)" class="form-control">
-											<option>@ViewData["Experience"]</option>
-											<option>Tecrübe</option>
+										<select name="@Html.DisplayNameFor(model => model.EducationalStatus)" class="form-control">
+										<option>@ViewData["EducationalStatus"]</option>
+										<option>Eğitim Seviyesi</option>
 											<option>ilköğretim</option>
 											<option>lise</option>
 											<option>önlisans</option>
@@ -233,23 +218,9 @@
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
 										<select name="@Html.DisplayNameFor(model => model.Gender)" class="form-control">
 											<option>@ViewData["Gender"]</option>
-											<option>cinsiyetiniz</option>
+										<option>Cinsiyet</option>
 											<option>erkek</option>
 											<option>kadın</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.EducationalStatus)" class="form-control">
-											<option>@ViewData["EducationalStatus"]</option>
-											<option>Eğitim Seviyesi</option>
-											<option>ilköğretim</option>
-											<option>lise</option>
-											<option>önlisans</option>
-											<option>lisans</option>
-											<option>yüksek lisans</option>
 										</select>
 									</div>
 								</div>
