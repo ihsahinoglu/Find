@@ -22,6 +22,7 @@
     <Folder Include="wwwroot\assets\plugins\date-dropper\" />
     <Folder Include="wwwroot\assets\plugins\fonts\" />
     <Folder Include="wwwroot\assets\plugins\map\js\" />
+    <Folder Include="wwwroot\assets\uploads\" />
   </ItemGroup>
 
 </Project>
