@@ -346,12 +346,16 @@
 									</div>
 									<div class="paid-candidate-inner--box">
 										<div class="paid-candidate-box-thumb">
-											<img src="~/assets/img/client-1.jpg" class="img-responsive img-circle" alt="" />
+										<img src="~/assets/uploads/@item.Image" class="img-responsive img-circle" alt="" />
 										</div>
 										<div class="paid-candidate-box-detail">
 											<h4>@item.Name @item.Surname</h4>
 											<span class="desination">@item.Profession</span>
-										</div>
+											@if (ViewData["status"] == "filtred")
+										{
+											<span class="desination">@item.Rate</span>
+										}
+									</div>
 									</div>
 									<div class="paid-candidate-box-extra">
 

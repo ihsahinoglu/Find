@@ -39,12 +39,28 @@ namespace Find.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("Home/Create")]
-        public async Task<IActionResult> Create([Bind("Id,Image,Name,Surname,Age,Gender,BirthDate,Email,Adress,Phone,MilitaryStatus,MaritalStatus,Experience,EducationalStatus,GraduationScore,Language,LanguageLevel,Reference,Explanation,Profession")] Candidate candidate)
+        public async Task<IActionResult> Create([Bind("Id,Image,Name,Surname,Age,Gender,BirthDate,Email,Adress,Phone,MilitaryStatus,MaritalStatus,Experience,EducationalStatus,GraduationScore,Language,LanguageLevel,Reference,Explanation,Profession")] Candidate candidate, IFormFile? formFile)
         {
 
             if (ModelState.IsValid)
             {
-                _context.Add(candidate);
+				if (formFile != null)
+				{
+
+					Console.WriteLine("döngüye girdi");
+					var extent = Path.GetExtension(formFile.FileName);
+					var randomName = ($"{Guid.NewGuid()}{extent}");
+					var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\uploads", randomName);
+					Console.WriteLine(path);
+					candidate.Image = randomName;
+
+					using (var stream = new FileStream(path, FileMode.Create))
+					{
+						await formFile.CopyToAsync(stream);
+					}
+				}
+
+					_context.Add(candidate);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
