@@ -22,10 +22,8 @@
 		<!-- Accordion Design Start -->
 		<section class="accordion">
 			<div class="container">
-				<form asp-action="Getlist">
+				<form asp-action="GetFiltredList" >
 					<!-- search filter -->
-					@if (ViewData["status"] != "filtred")
-					{
 						<div class="row extra-mrg">
 							<div class="wrap-search-filter">
 								<h2 class="detail-title">Filtrele</h2>
@@ -33,17 +31,17 @@
 								<div class="col-md-3 col-sm-3">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.MilitaryStatus)" class="form-control">
+										<select name="MilitaryStatus" class="form-control">
 											<option>Askerlik Durumu</option>
-											<option>yaptı</option>
-											<option>muaf</option>
+											<option>yaptı/muaf</option>
+											<option>yapmadı</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-md-3 col-sm-3">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Age)" class="form-control">
+										<select name="Age" class="form-control">
 											<option value=0>Yaş Aralığı</option>
 											<option value=1>18-25</option>
 											<option value=2>25-35</option>
@@ -54,7 +52,7 @@
 								<div class="col-md-3 col-sm-3">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.EducationalStatus)" class="form-control">
+										<select name="EducationalStatus" class="form-control">
 											<option>Eğitim Seviyesi</option>
 											<option>ilköğretim</option>
 											<option>lise</option>
@@ -67,7 +65,7 @@
 								<div class="col-md-3 col-sm-3">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Gender)" class="form-control">
+										<select name="Gender" class="form-control">
 											<option>Cinsiyet</option>
 											<option>erkek</option>
 											<option>kadın</option>
@@ -77,7 +75,7 @@
 								<div class="col-md-3 col-sm-3">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Profession)" class="form-control">
+										<select name="Profession" class="form-control">
 											<option>Meslek</option>
 											<option>Öğrenci</option>
 											<option>Öğretmen</option>
@@ -92,13 +90,13 @@
 								<div class="col-md-3 col-sm-3">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Language)" class="form-control">
+										<select name="Language" class="form-control">
 											<option>Yabancı Dil</option>
 											<option>İngilizce</option>
 											<option>Almanca</option>
 											<option>Fransızca</option>
 											<option>Arapça</option>
-											<option>Rusca</option>
+											<option>Rusça</option>
 											<option>Diğer</option>
 										</select>
 									</div>
@@ -106,7 +104,7 @@
 								<div class="col-md-3 col-sm-3">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Experience)" class="form-control">
+										<select name="Experience" class="form-control">
 											<option>Tecrübe</option>
 											<option>yok</option>
 											<option>1-3 yıl</option>
@@ -156,161 +154,7 @@
 
 
 							</div>
-							
 							<b class="text-danger">@ViewData["error"]</b>
-							
-						</div>
-						<div class="clearfix"></div>
-						<div class="row extra-mrg">
-							<div class="wrap-search-filter">
-
-								<div class="col-md-3 col-sm-3">
-									<button type="submit" value="index" class="btn btn-primary full-width">Filtrele ve Ağırlığa Göre Sırala</button>
-								</div>
-							</div>
-						</div>
-						<!-- search filter End -->
-					}
-					@if (ViewData["status"] == "filtred")
-					{
-						<div class="row extra-mrg">
-							<div class="wrap-search-filter">
-								<h2 class="detail-title">Filtrele</h2>
-
-								<div class="col-md-3 col-sm-3">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.MilitaryStatus)" class="form-control">
-											<option>@ViewData["MilitaryStatus"]</option>
-											<option>Askerlik Durumu</option>
-											<option>yaptı</option>
-											<option>muaf</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Age)" class="form-control">
-											<option value=0>Yaş Aralığı</option>
-											<option value=1>18-25</option>
-											<option value=2>25-35</option>
-											<option value=3>35-50</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.EducationalStatus)" class="form-control">
-										<option>@ViewData["EducationalStatus"]</option>
-										<option>Eğitim Seviyesi</option>
-											<option>ilköğretim</option>
-											<option>lise</option>
-											<option>önlisans</option>
-											<option>lisans</option>
-											<option>yüksek lisans</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Gender)" class="form-control">
-											<option>@ViewData["Gender"]</option>
-										<option>Cinsiyet</option>
-											<option>erkek</option>
-											<option>kadın</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Profession)" class="form-control">
-											<option>@ViewData["Profession"]</option>
-											<option>Öğrenci</option>
-											<option>Öğretmen</option>
-											<option>Mühendis</option>
-											<option>Yönetici</option>
-											<option>İşçi</option>
-											<option>Memur</option>
-											<option>Diğer</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Language)" class="form-control">
-											<option>@ViewData["Language"]</option>
-											<option>Yabancı Dil</option>
-											<option>İngilizce</option>
-											<option>Almanca</option>
-											<option>Fransızca</option>
-											<option>Arapça</option>
-											<option>Rusca</option>
-											<option>Diğer</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-flag"></i></span>
-										<select name="@Html.DisplayNameFor(model => model.Experience)" class="form-control">
-											<option>@ViewData["Experience"]</option>
-											<option>Tecrübe</option>
-											<option>yok</option>
-											<option>1-3 yıl</option>
-											<option>3-5 yıl</option>
-											<option>5-10 yıl</option>
-											<option>10+ yıl</option>
-										</select>
-									</div>
-								</div>
-
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<!-- search filter -->
-						<div class="row extra-mrg">
-							<div class="wrap-search-filter">
-								<h2 class="detail-title">Sırala</h2>
-								<div class="col-md-3 col-sm-3">
-									<div class="slider">
-										<p>Eğitim Seviyesi:</p>
-										<input name="a" type="range" min="0" max="100" step="10" value="@ViewData["a"]" oninput="rangeValue1.innerText = this.value">
-										<b>%<p id="rangeValue1">@ViewData["a"]</p></b>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="slider">
-										<p>Tecrübe:</p>
-										<input name="b" type="range" min="0" max="100" step="10" value="@ViewData["b"]" oninput="rangeValue2.innerText = this.value">
-										<b>%<p id="rangeValue2">@ViewData["b"]</p></b>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="slider">
-										<p>Dil:</p>
-										<input name="c" type="range" min="0" max="100" step="10" value="@ViewData["c"]" oninput="rangeValue3.innerText = this.value">
-										<b>%<p id="rangeValue3">@ViewData["c"]</p></b>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="slider">
-										<p>Diploma Notu:</p>
-										<input name="d" type="range" min="0" max="100" step="10" value="@ViewData["d"]" oninput="rangeValue4.innerText = this.value">
-										<b>%<p id="rangeValue4">@ViewData["d"]</p></b>
-									</div>
-								</div>
-
-
-
-							</div>
-						
-							<b class="text-danger">@ViewData["error"]</b>
-						
 						</div>
 						<div class="clearfix"></div>
 						<div class="row extra-mrg">
@@ -322,8 +166,8 @@
 							</div>
 						</div>
 						<!-- search filter End -->
-					}
-				</form>
+					
+			</form>
 				<div class="row">
 
 					@foreach (var item in Model)
@@ -351,10 +195,6 @@
 										<div class="paid-candidate-box-detail">
 											<h4>@item.Name @item.Surname</h4>
 											<span class="desination">@item.Profession</span>
-											@if (ViewData["status"] == "filtred")
-										{
-											<span class="desination">@item.Rate</span>
-										}
 									</div>
 									</div>
 									<div class="paid-candidate-box-extra">

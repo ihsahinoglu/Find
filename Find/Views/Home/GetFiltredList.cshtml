@@ -1,0 +1,171 @@
+﻿@model IEnumerable<Find.Models.Candidate>
+
+
+<div class="Loader"></div>
+<div class="wrapper">
+
+	<!-- Start Navigation -->
+	<partial name="Navbar"> </partial>
+	<!-- End Navigation -->
+	<div class="clearfix"></div>
+
+	<!-- Title Header Start -->
+	<section class="inner-header-title blank">
+		<div class="container">
+
+			<h2>Aday Bul</h2>
+		</div>
+	</section>
+	<div class="clearfix"></div>
+	<!-- Title Header End -->
+	<!-- Accordion Design Start -->
+	@if (Model.Count() == 0)
+	{
+		<section class="accordion">
+			<div class="container">
+		<h4>Uygun aday bulunamadı.</h4>
+		</div>
+		</section>
+	}
+	else
+	{
+		<section class="accordion">
+			<div class="container">
+				<div class="row">
+
+					@foreach (var item in Model.OrderByDescending(x => x.Rate))
+					{
+						<!-- Single paid-candidater -->
+						<div class="col-md-4 col-sm-6">
+							<div class="paid-candidate-container">
+								<div class="paid-candidate-box">
+									<div class="dropdown">
+										<div class="btn-group fl-right">
+											<button type="button" class="btn-trans" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<i class="fa fa-gear"></i>
+											</button>
+											<div class="dropdown-menu pull-right animated flipInX">
+												<a href="#">Shortlist</a>
+												<a href="#">Send Message</a>
+												<a href="#">Dislike</a>
+											</div>
+										</div>
+									</div>
+									<div class="paid-candidate-inner--box">
+										<div class="paid-candidate-box-thumb">
+											<img src="~/assets/uploads/@item.Image" class="img-responsive img-circle" alt="" />
+										</div>
+										<div class="paid-candidate-box-detail">
+											<h4>@item.Name @item.Surname</h4>
+											<span class="desination">@item.Profession</span>
+											<span class="desination">Sıralama Puanı: @item.Rate</span>
+										</div>
+									</div>
+									<div class="paid-candidate-box-extra">
+
+										<p>@item.Explanation</p>
+									</div>
+								</div>
+								<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-paid-candidate bt-1">
+									Detayını Gör
+								</a>
+							</div>
+						</div>
+
+					}
+
+
+				</div>
+
+			</div>
+
+			<div class="row">
+				<ul class="pagination">
+					<li><a href="#">&laquo;</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#"><i class="fa fa-ellipsis-h"></i></a></li>
+					<li><a href="#">&raquo;</a></li>
+				</ul>
+			</div>
+		</section>
+	}
+	
+	<!-- Accordion Design End -->
+	
+	<!-- Scripts
+	================================================== -->
+	<script type="text/javascript" src="~/assets/plugins/js/jquery.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/viewportchecker.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/bootsnav.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/select2.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/wysihtml5-0.3.0.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/bootstrap-wysihtml5.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/datedropper.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/dropzone.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/loader.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/slick.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/gmap3.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/jquery.easy-autocomplete.min.js"></script>
+
+	<!-- Custom Js -->
+	<script src="~/assets/js/custom.js"></script>
+	<script src="~/assets/js/jQuery.style.switcher.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#styleOptions').styleSwitcher();
+		});
+	</script>
+	<script>
+		function openRightMenu() {
+			document.getElementById("rightMenu").style.display = "block";
+		}
+
+		function closeRightMenu() {
+			document.getElementById("rightMenu").style.display = "none";
+		}
+	</script>
+	<script src="~/assets/js/custom.js"></script>
+
+	<script>
+		$('#dob').datedropper();
+	</script>
+
+	<script>
+		$('#exp-start').datedropper();
+	</script>
+
+	<script>
+		$('#exp-end').datedropper();
+	</script>
+
+	<script>
+		$('#edu-start').datedropper();
+	</script>
+
+	<script>
+		$('#edu-end').datedropper();
+	</script>
+	<script src="~/assets/js/jquery.style.switcher.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#styleoptions').styleswitcher();
+		});
+	</script>
+	<script>
+		function openrightmenu() {
+			document.getelementbyıd("rightmenu").style.display = "block";
+		}
+
+		function closerightmenu() {
+			document.getelementbyıd("rightmenu").style.display = "none";
+		}
+	</script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+</div>
