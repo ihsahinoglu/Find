@@ -131,7 +131,7 @@ namespace Find.Controllers
 
 		[HttpPost]
 		[Route("Home/GetFiltredList")]
-		public async Task<IActionResult> GetFiltredList(int a, int b, int c, int d, int Age, string Gender, string MilitaryStatus, string Experience, string EducationalStatus, string Language, string Profession)
+		public async Task<IActionResult> GetFiltredList(int a, int b, int c, int d, int? MinAge, int? MaxAge, string Gender, string MilitaryStatus, string Experience, string EducationalStatus, string Language, string Profession)
 		{
 			if ((a + b + c + d) != 100 && (a + b + c + d) != 0)
 			{
@@ -157,17 +157,13 @@ namespace Find.Controllers
 				if (Gender != "Cinsiyet")
 					FiltredList = FiltredList.Where(e => e.Gender == Gender);
 
-				if (Age != 0)
-				{
+				
 
-					if (Age == 1)
-						FiltredList = FiltredList.Where(e => e.Age >= 18 && e.Age < 25);
-					if (Age == 2)
-						FiltredList = FiltredList.Where(e => e.Age >= 25 && e.Age < 35);
-					if (Age == 3)
-						FiltredList = FiltredList.Where(e => e.Age >= 35 && e.Age <= 50);
-
-				}
+				if (MinAge == null) MinAge = 0;
+				if (MaxAge == null) MaxAge = 100;
+				FiltredList = FiltredList.Where(e => e.Age >= MinAge && e.Age <= MaxAge);
+				
+				
 
 				if (Profession != "Meslek")
 					FiltredList = FiltredList.Where(e => e.Profession == Profession);
