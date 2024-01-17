@@ -53,14 +53,6 @@
 									<span asp-validation-for="Surname"></span>
 								</div>
 							</div>
-
-							<div class="col-md-6 col-sm-6">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-									<input asp-for="Age" type="text" class="form-control" placeholder="yaşınız">
-									<span asp-validation-for="Age"></span>
-								</div>
-							</div>
 							<div class="col-md-6 col-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-flag"></i></span>
@@ -107,7 +99,7 @@
 							<div class="col-md-6 col-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
-									<input asp-for="BirthDate" type="text" id="dob" data-lang="en" data-large-mode="true" data-min-year="2017" data-max-year="2020" data-disabled-days="08/17/2017,08/18/2017" data-id="datedropper-0" data-theme="my-style" class="form-control" placeholder="Doğum Tarihiniz">
+								<input asp-for="BirthDate" type="date" id="dob" data-lang="tr" data-large-mode="true" data-id="datedropper-0" data-disabled-days="01/01/2000" data-data-theme="my-style" class="form-control" placeholder="Doğum Tarihiniz" readonly="">
 									<span asp-validation-for="BirthDate"></span>
 								</div>
 							</div>
@@ -146,7 +138,7 @@
 
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-globe"></i></span>
-										<input asp-for="GraduationScore" type="text" class="form-control" placeholder="mezuniyet puanınız">
+										<input asp-for="GraduationScore" type="text" class="form-control" placeholder="mezuniyet puanınız (virgül kullanınız)">
 										<span asp-validation-for="GraduationScore"></span>
 									</div>
 
@@ -310,68 +302,71 @@
 
 			</form>
 		</div>
-		<!-- scripts
-		================================================== -->
-		<script type="text/javascript" src="~/assets/plugins/js/jquery.min.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/viewportchecker.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/bootsnav.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/select2.min.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/wysihtml5-0.3.0.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/bootstrap-wysihtml5.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/datedropper.min.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/dropzone.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/loader.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/owl.carousel.min.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/slick.min.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/gmap3.min.js"></script>
-		<script type="text/javascript" src="~/assets/plugins/js/jquery.easy-autocomplete.min.js"></script>
-		<!-- date dropper js-->
-		<script src="#"></script>
+	<!-- Scripts
+	================================================== -->
+	<script type="text/javascript" src="~/assets/plugins/js/jquery.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/viewportchecker.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/bootsnav.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/select2.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/wysihtml5-0.3.0.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/bootstrap-wysihtml5.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/datedropper.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/dropzone.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/loader.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/slick.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/gmap3.min.js"></script>
+	<script type="text/javascript" src="~/assets/plugins/js/jquery.easy-autocomplete.min.js"></script>
+	<!-- Date dropper js-->
+	<script src="#"></script>
 
-		<!-- custom js -->
-		<script src="~/assets/js/custom.js"></script>
+	<!-- Custom Js -->
+	<script src="~/assets/js/custom.js"></script>
 
-		<script>
-			$('#dob').datedropper();
-		</script>
+	<script>
+		$('#dob').dateDropper();
+	</script>
 
-		<script>
-			$('#exp-start').datedropper();
-		</script>
+	<script>
+		$('#exp-start').dateDropper();
+	</script>
 
-		<script>
-			$('#exp-end').datedropper();
-		</script>
+	<script>
+		$('#exp-end').dateDropper();
+	</script>
 
-		<script>
-			$('#edu-start').datedropper();
-		</script>
+	<script>
+		$('#edu-start').dateDropper();
+	</script>
 
-		<script>
-			$('#edu-end').datedropper();
-		</script>
-		<script src="~/assets/js/jquery.style.switcher.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function () {
-				$('#styleoptions').styleswitcher();
-			});
-		</script>
-		<script>
-			function openrightmenu() {
-				document.getelementbyıd("rightmenu").style.display = "block";
-			}
+	<script>
+		$('#edu-end').dateDropper();
+	</script>
+	<script src="~/assets/js/jQuery.style.switcher.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#styleOptions').styleSwitcher();
+		});
+	</script>
+	<script>
+		function openRightMenu() {
+			document.getElementById("rightMenu").style.display = "block";
+		}
 
-			function closerightmenu() {
-				document.getelementbyıd("rightmenu").style.display = "none";
-			}
-		</script>
+		function closeRightMenu() {
+			document.getElementById("rightMenu").style.display = "none";
+		}
+	</script>
+
+@* 
+	
 		<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 		<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 		@section scripts {
 			@{
 				await Html.RenderPartialAsync("_validationscriptspartial");
 			}
-		}
+		} *@
 	</div>
 

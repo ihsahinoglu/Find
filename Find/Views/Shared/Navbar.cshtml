@@ -15,36 +15,54 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-menu">
-            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                @if (SignInManager.IsSignedIn(User))
+            @if (!SignInManager.IsSignedIn(User))
                 {
+            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                <li><a asp-area="Identity" asp-page="/Account/Register" >Kayıt Ol</a></li>
+                <li class="left-br">
+                  <a asp-area="Identity" asp-page="/Account/Login" class="signin">Giriş Yap</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                <li> <a asp-controller="Home" asp-action="Create" class="dropdown-toggle">Özgeçmiş Oluştur</a></li>
+                
+            </ul>
+                }
+
+            @if (User.IsInRole("Employer"))
+                {
+                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                     <li><a asp-area="Identity" asp-page="/Account/Manage/Index">Merhaba @User.Identity?.Name!</a></li>
-                    
                     <li class="left-br">
                         <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                            <button type="submit" class="signin" class="fa fa-pencil" aria-hidden="true">Çıkış Yap</button>
+                        <button type="submit" class="signin" aria-hidden="true">Çıkış Yap</button>
+                        </form>
+                </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                    <li> <a asp-controller="Home" asp-action="Create" class="dropdown-toggle">Özgeçmiş Oluştur</a></li>
+                    <li> <a asp-controller="Home" asp-action="Getlist" class="dropdown-toggle">Aday Bul</a></li>
+                        
+                </ul>
+                }
+            @if (User.IsInRole("JobSeeker"))
+            {
+                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                    @* <li><a asp-area="Identity" asp-page="/Account/Manage/Index">Merhaba @User.Identity?.Name!</a></li> *@
+                    <li><a >Merhaba @User.Identity?.Name!</a></li>
+                    <li class="left-br">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="signin" aria-hidden="true">Çıkış Yap</button>
                         </form>
                     </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                    <li> <a asp-controller="Home" asp-action="Create" class="dropdown-toggle">Özgeçmiş Oluştur</a></li>
                    
-                }
-                else
-                {
-                    <li><a asp-area="Identity" asp-page="/Account/Register">Kayıt Ol</a></li>
-                    <li class="left-br">
-                        <a asp-area="Identity" asp-page="/Account/Login" class="signin">Giriş Yap</a>
-                    </li>
-                
-                }
-                
-            </ul>
-            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                
-                <li>
-                    <a asp-controller="Home" asp-action="Create" class="dropdown-toggle">Özgeçmiş Oluştur</a>
-
-                </li>
-                <li> <a asp-controller="Home" asp-action="Getlist" class="dropdown-toggle">Aday Bul</a>
-            </ul>
+                   @*  <li> <a asp-controller="Home" asp-action="Details" asp-route-id="" class="dropdown-toggle">Özgeçmiş Düzenle</a></li> *@
+                   
+                </ul>
+            }
         </div>
     </div>
 </nav>

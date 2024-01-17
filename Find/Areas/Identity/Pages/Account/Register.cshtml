@@ -91,8 +91,13 @@
 
 						<input asp-for="Input.ConfirmPassword" class="form-control" type="password" autocomplete="new-password" aria-required="true" placeholder="confirm password" />
 						<span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+						
+						<select name="RoleID" class="form-control">
+							<option value="JobSeeker">İş Arayan</option>
+							<option value="Employer">İşveren</option>
+						</select>	
+						
 
-					
 						<button id="registerSubmit" type="submit" class="btn btn-login">Kayıt Ol</button>
 						<span>You Have No Account? <a href="signup.html"> Create An Account</a></span>
 						<span><a href="lost-password.html"> Forget Password</a></span>

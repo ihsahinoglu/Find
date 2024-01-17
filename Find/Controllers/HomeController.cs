@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace Find.Controllers
 {
@@ -43,17 +46,18 @@ namespace Find.Controllers
         [Route("Home/Create")]
         public async Task<IActionResult> Create([Bind("Id,Image,Name,Surname,Age,Gender,BirthDate,Email,Adress,Phone,MilitaryStatus,MaritalStatus,Experience,EducationalStatus,GraduationScore,Language,LanguageLevel,Reference,Explanation,Profession")] Candidate candidate, IFormFile? formFile)
         {
+			
+			if (candidate.BirthDate != null)
+				candidate.Age = DateTime.Now.Year - candidate.BirthDate.Value.Year;
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (ModelState.IsValid)
             {
 				if (formFile != null)
 				{
-
-					Console.WriteLine("döngüye girdi");
 					var extent = Path.GetExtension(formFile.FileName);
 					var randomName = ($"{Guid.NewGuid()}{extent}");
 					var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\uploads", randomName);
-					Console.WriteLine(path);
 					candidate.Image = randomName;
 
 					using (var stream = new FileStream(path, FileMode.Create))
@@ -71,6 +75,7 @@ namespace Find.Controllers
         }
 
         [Route("Home/Getlist")]
+        [Authorize(Roles = "Employer")]
         public async Task<IActionResult> Getlist(string? errorMsg)
         {
 			if (errorMsg!=null) ViewData["error"] = "Hata: Deðerlerin toplamý 100 olmalýdýr.";
@@ -130,7 +135,8 @@ namespace Find.Controllers
 
 
 		[HttpPost]
-		[Route("Home/GetFiltredList")]
+        [Authorize(Roles = "Employer")]
+        [Route("Home/GetFiltredList")]
 		public async Task<IActionResult> GetFiltredList(int a, int b, int c, int d, int? MinAge, int? MaxAge, string Gender, string MilitaryStatus, string Experience, string EducationalStatus, string Language, string Profession)
 		{
 			if ((a + b + c + d) != 100 && (a + b + c + d) != 0)
@@ -148,8 +154,27 @@ namespace Find.Controllers
 				if (Experience != "Tecrübe")
 					FiltredList = FiltredList.Where(e => e.Experience == Experience);
 
-				if (EducationalStatus != "Eðitim Seviyesi")
-					FiltredList = FiltredList.Where(e => e.EducationalStatus == EducationalStatus);
+				if (EducationalStatus != "Min Eðitim Seviyesi" || EducationalStatus != "ilköðretim")
+					switch (EducationalStatus)
+					{
+						case "lise":
+							FiltredList = FiltredList.Where(e => e.EducationalStatus == "lise" 
+							|| e.EducationalStatus == "önlisans" || e.EducationalStatus == "lisans" 
+							|| e.EducationalStatus == "yüksek lisans");
+							break;
+						case "önlisans":
+							FiltredList = FiltredList.Where(e => e.EducationalStatus == "önlisans" 
+							|| e.EducationalStatus == "lisans" || e.EducationalStatus == "yüksek lisans");
+							break;
+						case "lisans":
+							FiltredList = FiltredList.Where(e => e.EducationalStatus == "lisans" 
+							|| e.EducationalStatus == "yüksek lisans");
+							break;
+						case "yüksek lisans":
+							FiltredList = FiltredList.Where(e => e.EducationalStatus == "yüksek lisans");
+							break;
+					}
+					
 
 				if (Language != "Yabancý Dil")
 					FiltredList = FiltredList.Where(e => e.Language == Language);

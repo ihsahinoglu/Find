@@ -15,7 +15,7 @@
 		<!-- Title Header Start -->
 		<section class="inner-header-title" style="background-image:url(~/assets/img/banner-10.jpg);">
 		<div align="left">
-			<a style="background-image:url(~/assets/img/banner-10.jpg); color:white; class=" list-group-item" href="javascript:history.go(-1)"><i class="fa fa-arrow-left fa-fw" aria-hidden="true"></i>&nbsp; Geri</a>
+			<a style="background-image:url(~/assets/img/banner-10.jpg); color:white; class="list-group-item" href="javascript:history.go(-1)"><i class="fa fa-arrow-left fa-fw" aria-hidden="true"></i>&nbsp; Geri</a>
 		</div>
 			<div class="container">
 				<h1>Profil Detay</h1>
@@ -114,7 +114,7 @@
 										<textarea asp-for="Explanation" class="form-control" value="@Model.Explanation"></textarea>
 										</div>
 
-										 @if (SignInManager.IsSignedIn(User))
+									@if (@User.Identity?.Name == Model.Email?.ToUpper())
 										{ 
 										<div class="col-md-4 col-sm-6">
 										<label>Profil Fotoğrafı Yükle</label>
